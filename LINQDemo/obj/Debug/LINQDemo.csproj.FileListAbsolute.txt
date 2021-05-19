@@ -1,0 +1,7 @@
+C:\Users\Bishal Pradhan\source\repos\LINQDemo\LINQDemo\bin\Debug\LINQDemo.exe.config
+C:\Users\Bishal Pradhan\source\repos\LINQDemo\LINQDemo\bin\Debug\LINQDemo.exe
+C:\Users\Bishal Pradhan\source\repos\LINQDemo\LINQDemo\bin\Debug\LINQDemo.pdb
+C:\Users\Bishal Pradhan\source\repos\LINQDemo\LINQDemo\obj\Debug\LINQDemo.csprojAssemblyReference.cache
+C:\Users\Bishal Pradhan\source\repos\LINQDemo\LINQDemo\obj\Debug\LINQDemo.csproj.CoreCompileInputs.cache
+C:\Users\Bishal Pradhan\source\repos\LINQDemo\LINQDemo\obj\Debug\LINQDemo.exe
+C:\Users\Bishal Pradhan\source\repos\LINQDemo\LINQDemo\obj\Debug\LINQDemo.pdb
