@@ -24,7 +24,8 @@ namespace LINQDemo
             };
             //IterateOverProductList(list);
             //RetriveTop3RecordsFromList(list);
-            RetriveredsBasedOnRatingAndProductId(list);
+            //RetriveredsBasedOnRatingAndProductId(list);
+            CountingProductId(list);
             Console.ReadLine();
         }
         public static void IterateOverProductList(List<ProductReview> list)
@@ -81,6 +82,19 @@ namespace LINQDemo
             foreach(var element in data)
             {
                 Console.WriteLine("ProductId" + element.ProductId + "\t" + "Rating" + element.Rating);
+                Console.WriteLine("--------------");
+            }
+        }
+        ///UC4
+        ///
+        ///Counting each id present in the list
+        public static void CountingProductId(List<ProductReview>list)
+        {
+            //method syntax for linq
+            var data = list.GroupBy(p => p.ProductId).Select(x => new { productID = x.Key, count = x.Count() });
+            foreach(var element in data)
+            {
+                Console.WriteLine("ProductId" + element.productID + "\t" + "Count" + element.count);
                 Console.WriteLine("--------------");
             }
         }
