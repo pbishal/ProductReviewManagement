@@ -25,7 +25,8 @@ namespace LINQDemo
             //IterateOverProductList(list);
             //RetriveTop3RecordsFromList(list);
             //RetriveredsBasedOnRatingAndProductId(list);
-            CountingProductId(list);
+            //CountingProductId(list);
+            RetriveProductIDAndReview(list);
             Console.ReadLine();
         }
         public static void IterateOverProductList(List<ProductReview> list)
@@ -96,6 +97,18 @@ namespace LINQDemo
             {
                 Console.WriteLine("ProductId" + element.productID + "\t" + "Count" + element.count);
                 Console.WriteLine("--------------");
+            }
+        }
+        ///UC5
+        ///
+        ///Retrieve only productId and
+        ///review from the list for all records.
+        public static void RetriveProductIDAndReview(List<ProductReview> ProductsReviewList)
+        {
+            var p = ProductsReviewList.Select(Product => new { ProductID = Product.ProductId, review = Product.Review });
+            foreach(var elements in p)
+            {
+                Console.WriteLine("ProductId" + elements.ProductID + "\t" + "Review" + elements.review);
             }
         }
     }
