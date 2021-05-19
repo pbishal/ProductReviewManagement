@@ -16,12 +16,14 @@ namespace LINQDemo
 
             List<ProductReview> list = new List<ProductReview>()
             {
-                new ProductReview(){ProductId=1, UserId=1, Review="Good", Rating=17, IsLike=true},
-                new ProductReview(){ProductId=3, UserId=1, Review="Good", Rating=17, IsLike=false},
+                new ProductReview(){ProductId=1, UserId=1, Review="Good", Rating=20, IsLike=true},
+                new ProductReview(){ProductId=3, UserId=1, Review="Good", Rating=1, IsLike=false},
                 new ProductReview(){ProductId=1, UserId=1, Review="Good", Rating=17, IsLike=true},
                 new ProductReview(){ProductId=1, UserId=1, Review="Average", Rating=17, IsLike=true},
-                new ProductReview(){ProductId=1, UserId=1, Review="Bad", Rating=17, IsLike=false}
+                new ProductReview(){ProductId=1, UserId=1, Review="Bad", Rating=2, IsLike=false}
             };
+            //IterateOverProductList(list);
+            RetriveTop3RecordsFromList(list);
             Console.ReadLine();
         }
         public static void IterateOverProductList(List<ProductReview>list)
@@ -50,6 +52,18 @@ namespace LINQDemo
             foreach(var res in result)
             {
                 Console.WriteLine("Productname:" + res);
+            }
+        }
+
+        //UC2
+        public static void RetriveTop3RecordsFromList(List<ProductReview>list)
+        {
+            var result = from product in list orderby product.Rating descending select product;
+            var topThreeRecords = result.Take(3);
+            foreach(ProductReview product in topThreeRecords)
+            {
+                Console.WriteLine("ProductId:" + product.ProductId + "\t" + "UserId:" + product.UserId + "\t" +
+                    "Review:" + product.Review + "\t" + "Rating:" + product.Rating + "\t" + "IsLike" + product.IsLike + "\t");
             }
         }
     }
