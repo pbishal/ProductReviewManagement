@@ -38,5 +38,20 @@ namespace LINQDemo
                 Console.WriteLine("Product Id :" + list.Field<int>("ProductId") + "\t" + "User Id :" + list.Field<int>("UserId") + "\t" + "Rating ;" + list.Field<double>("Rating") + "\t" + "Review :" + list.Field<string>("Review") + "\t" + "Is Like :" + list.Field<bool>("IsLike"));
             }
         }
+
+        //  UC9 Retrieves all records whose is like is true.
+
+        public static void RetrieveRecordWithTrueIsLike()
+        {
+            var retrieveData = from records in table.AsEnumerable()
+                               where (records.Field<bool>("IsLike") == true)
+                               select records;
+            //Printing data
+            Console.WriteLine("\nRecords in table whose IsLike value is true:");
+            foreach (var list in retrieveData)
+            {
+                Console.WriteLine("Product Id :" + list.Field<int>("ProductId") + "\t" + "User Id :" + list.Field<int>("UserId") + "\t" + "Rating ;" + list.Field<double>("Rating") + "\t" + "Review :" + list.Field<string>("Review") + "\t" + "Is Like :" + list.Field<bool>("IsLike"));
+            }
+        }
     }
 }
