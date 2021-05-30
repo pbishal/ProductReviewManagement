@@ -16,17 +16,24 @@ namespace LINQDemo
 
             List<ProductReview> list = new List<ProductReview>()
             {
-                new ProductReview(){ProductId=1, UserId=1, Review="Good", Rating=20, IsLike=true},
-                new ProductReview(){ProductId=3, UserId=1, Review="Good", Rating=1, IsLike=false},
-                new ProductReview(){ProductId=4, UserId=1, Review="Good", Rating=17, IsLike=true},
-                new ProductReview(){ProductId=1, UserId=1, Review="Average", Rating=17, IsLike=true},
-                new ProductReview(){ProductId=9, UserId=1, Review="Bad", Rating=2, IsLike=false}
+                new ProductReview() { ProductId = 1, UserId = 1, Rating = 5, Review = "Excelent", IsLike = true },
+                new ProductReview() { ProductId = 1, UserId = 1, Rating = 5, Review = "Excelent", IsLike = true },
+                new ProductReview() { ProductId = 2, UserId = 2, Rating = 4, Review = "Good",     IsLike = false },
+                new ProductReview() { ProductId = 4, UserId = 3, Rating = 4, Review = "Good",     IsLike = true },
+                new ProductReview() { ProductId = 3, UserId = 3, Rating = 3, Review = "Average",  IsLike = false },
+                new ProductReview() { ProductId = 3, UserId = 4, Rating = 5, Review = "Excelent", IsLike = true },
+                new ProductReview() { ProductId = 4, UserId = 5, Rating = 3, Review = "Average",  IsLike = true },
+                new ProductReview() { ProductId = 5, UserId = 5, Rating = 2, Review = "Bad",      IsLike = true },
+                new ProductReview() { ProductId = 5, UserId = 6, Rating = 2, Review = "Bad",      IsLike = true },
+                new ProductReview() { ProductId = 6, UserId = 7, Rating = 1, Review = "Very Bad", IsLike = true },
+                new ProductReview() { ProductId = 6, UserId = 7, Rating = 3, Review = "Average",  IsLike = true }
             };
             //IterateOverProductList(list);
             //RetriveTop3RecordsFromList(list);
             //RetriveredsBasedOnRatingAndProductId(list);
             //CountingProductId(list);
-            RetriveProductIDAndReview(list);
+            //RetriveProductIDAndReview(list);
+            SkipTopFiveRecords(list);
             Console.ReadLine();
         }
         public static void IterateOverProductList(List<ProductReview> list)
@@ -109,6 +116,18 @@ namespace LINQDemo
             foreach(var elements in p)
             {
                 Console.WriteLine("ProductId" + elements.ProductID + "\t" + "Review" + elements.review);
+            }
+        }
+
+        /// UC6 Skip top five records from the list and display other records.
+        public static void SkipTopFiveRecords(List<ProductReview> list)
+        {
+            var recordedData = (from products in list
+                                select products).Skip(5);
+            Console.WriteLine("\n Skiping the Top five records and Display others ");
+            foreach (var productReview in recordedData)
+            {
+                Console.WriteLine("Product Id :" + productReview.ProductId + "\t" + "User Id :" + productReview.UserId + "\t" + "Rating ;" + productReview.Rating + "\t" + "Review :" + productReview.Review + "\t" + "Is Like :" + productReview.IsLike);
             }
         }
     }
