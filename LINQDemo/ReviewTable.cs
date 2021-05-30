@@ -53,5 +53,16 @@ namespace LINQDemo
                 Console.WriteLine("Product Id :" + list.Field<int>("ProductId") + "\t" + "User Id :" + list.Field<int>("UserId") + "\t" + "Rating ;" + list.Field<double>("Rating") + "\t" + "Review :" + list.Field<string>("Review") + "\t" + "Is Like :" + list.Field<bool>("IsLike"));
             }
         }
+
+        // UC10 Finds the average rating for each productId.
+        public static void FindAverageRatingOfTheEachProductId()
+        {
+            var records = table.AsEnumerable().GroupBy(r => r.Field<int>("ProductId")).Select(r => new { ProductId = r.Key, Average = r.Average(z => (z.Field<double>("Rating"))) });
+            Console.WriteLine("\nProductId and its average rating");
+            foreach (var v in records)
+            {
+                Console.WriteLine($"ProductID:{v.ProductId},AverageRating:{v.Average}");
+            }
+        }
     }
 }

@@ -35,8 +35,9 @@ namespace LINQDemo
             //RetriveProductIDAndReview(list);
             //SkipTopFiveRecords(list);
             //RetrieveProductIDAndReviewUsingLambdaSyntax(list);
-            //ReviewTable.AddDataIntoDataTable();
-            ReviewTable.RetrieveRecordWithTrueIsLike();
+            ReviewTable.AddDataIntoDataTable();
+            //ReviewTable.RetrieveRecordWithTrueIsLike();
+            //ReviewTable.FindAverageRatingOfTheEachProductId();
             Console.ReadLine();
         }
         public static void IterateOverProductList(List<ProductReview> list)
