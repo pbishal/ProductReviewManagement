@@ -34,7 +34,8 @@ namespace LINQDemo
             //CountingProductId(list);
             //RetriveProductIDAndReview(list);
             //SkipTopFiveRecords(list);
-            RetrieveProductIDAndReviewUsingLambdaSyntax(list);
+            //RetrieveProductIDAndReviewUsingLambdaSyntax(list);
+            ReviewTable.AddDataIntoDataTable();
             Console.ReadLine();
         }
         public static void IterateOverProductList(List<ProductReview> list)
